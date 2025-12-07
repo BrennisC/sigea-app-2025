@@ -51,9 +51,9 @@
                                 <h3 class="font-semibold text-lg">{{ $sesion->nombre }}</h3>
                                 <p class="text-sm text-gray-600">{{ $sesion->descripcion }}</p>
                                 <div class="flex items-center space-x-4 mt-2 text-sm text-gray-500">
-                                    <span>📅 {{ $sesion->fecha_hora_inicio->format('d/m/Y H:i') }}</span>
+                                    <span> <x-heroicon-o-check-circle class="w-6 h-6 text-green-600" /> {{ $sesion->fecha_hora_inicio->format('d/m/Y H:i') }}</span>
                                     @if($sesion->duracion_minutos)
-                                        <span>⏱️ {{ $sesion->duracion_minutos }} min</span>
+                                        <span> <x-heroicon-o-clock class="w-6 h-6 text-green-600" /> {{ $sesion->duracion_minutos }} min</span>
                                     @endif
                                 </div>
                             </div>

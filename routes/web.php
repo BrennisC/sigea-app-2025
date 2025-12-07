@@ -72,8 +72,9 @@ Route::middleware(['auth', 'verified', 'role:PARTICIPANTE,ORGANIZADOR,ADMINISTRA
     // Dashboard participante
     Route::get('/panel', [ParticipantDashboardController::class, 'index'])->name('participant.dashboard');
     
-    // Mis actividades
+    // Mis actividades / inscripciones
     Route::get('/mis-actividades', [EnrollmentController::class, 'index'])->name('participant.actividades.index');
+    Route::get('/inscripciones', [EnrollmentController::class, 'index'])->name('participant.enrollments.index');
     Route::post('/inscripciones', [EnrollmentController::class, 'store'])->name('participant.enrollments.store');
     
     // Mis certificados

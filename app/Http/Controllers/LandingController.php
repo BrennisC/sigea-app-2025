@@ -13,12 +13,13 @@ class LandingController extends Controller
     public function index()
     {
         // Obtener próximas actividades publicadas
+        // Obtener próximas actividades publicadas y en curso
         $proximasActividades = Actividad::with(['organizador', 'tipo', 'estado'])
             ->whereHas('estado', function ($query) {
-                $query->where('nombre', 'Publicada');
+                $query->whereIn('nombre', ['Publicada', 'En Curso']);
             })
             ->where('activo', true)
-            ->where('fecha_inicio', '>=', now())
+            ->where('fecha_fin', '>=', now())
             ->orderBy('fecha_inicio', 'asc')
             ->take(6)
             ->get();
